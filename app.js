@@ -8,7 +8,7 @@ const session = require('express-session')
 const flash = require('connect-flash')
 // import mongoose
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/db_bwamern', {
+mongoose.connect('mongodb://arbinmaki919:malangmalang234@cluster0-shard-00-00.ga4gs.mongodb.net:27017,cluster0-shard-00-01.ga4gs.mongodb.net:27017,cluster0-shard-00-02.ga4gs.mongodb.net:27017/bwa_mern?ssl=true&replicaSet=atlas-1346ve-shard-0&authSource=admin&retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
