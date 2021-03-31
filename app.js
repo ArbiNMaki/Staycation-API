@@ -1,12 +1,12 @@
 var createError = require('http-errors');
 var express = require('express');
+const cors = require('cors')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override')
 const session = require('express-session')
 const flash = require('connect-flash')
-const cors = require('cors')
 // import mongoose
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://arbinmaki919:malang234@cluster0-shard-00-00.edwvu.mongodb.net:27017,cluster0-shard-00-01.edwvu.mongodb.net:27017,cluster0-shard-00-02.edwvu.mongodb.net:27017/bwa_mern?ssl=true&replicaSet=atlas-10c9c0-shard-0&authSource=admin&retryWrites=true&w=majority', {
@@ -23,6 +23,7 @@ const adminRouter = require('./routes/admin')
 const apiRouter = require('./routes/api')
 
 var app = express();
+app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,7 +42,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/sb-admin-2', express.static(path.join(__dirname, 'node_modules/startbootstrap-sb-admin-2')))
-app.use(cors())
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 // admin
